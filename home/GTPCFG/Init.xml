@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!--Основные настройки-->
+<message class="INIT" version="1" releasestamp="20220216110000">
+	<trader>
+		<code>TRADERCD</code>
+		<name>CompanyName</name>
+		<inn>0000000000</inn>
+		<mail>robot@mail.com</mail>
+	</trader>	
+</message>

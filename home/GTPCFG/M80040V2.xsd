@@ -1,0 +1,91 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="datetime">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:long" name="timestamp"/>
+							<xs:element type="xs:byte" name="daylightsavingtime"/>
+							<xs:element type="xs:int" name="day"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="sender">
+					<xs:complexType>
+						<xs:all>							
+							<xs:element type="xs:long" name="inn"/>
+							<xs:element type="xs:string" name="name"/>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="area" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:choice>
+								<xs:sequence>
+									<xs:element type="xs:string" name="name"/>
+									<xs:element type="xs:long" name="inn"/>
+								</xs:sequence>
+								<xs:sequence>
+									<xs:element type="xs:long" name="inn"/>
+									<xs:element type="xs:string" name="name"/>									
+								</xs:sequence>
+							</xs:choice>
+							<xs:element name="measuringpoint" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="measuringchannel" maxOccurs="4">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="period" maxOccurs="48" minOccurs="48">
+														<xs:complexType>
+															<xs:sequence>																
+																<xs:element name="value">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:nonNegativeInteger">
+																				<xs:attribute type="xs:byte" name="status" use="optional"/>
+																				<xs:attribute type="xs:string" name="param1" use="optional"/>
+																				<xs:attribute type="xs:string" name="param2" use="optional"/>
+																				<xs:attribute type="xs:string" name="param3" use="optional"/>
+																				<xs:attribute type="xs:int" name="extendedstatus" use="optional"/>
+																				<xs:attribute type="xs:string" name="errofmeasuring" use="optional"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute type="xs:short" name="start" use="required"/>
+															<xs:attribute type="xs:short" name="end" use="required"/>
+															<xs:attribute type="xs:byte" name="summer" use="optional"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute type="xs:byte" name="code" use="required"/>
+												<xs:attribute type="xs:string" name="desc" use="required"/>
+												<xs:attribute type="xs:string" name="verbose" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute type="xs:long" name="code" use="required"/>
+									<xs:attribute type="xs:string" name="name" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>						
+						<xs:attribute name="timezone" default="1">
+							<xs:simpleType>
+								<xs:restriction base="xs:byte">
+									<xs:pattern value="1|3"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute type="xs:int" name="class" use="required" fixed="80040"/>
+			<xs:attribute type="xs:byte" name="version" use="required" fixed="2"/>
+			<xs:attribute type="xs:int" name="number" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

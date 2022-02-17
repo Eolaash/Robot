@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!--Конфигурация календаря и пиковых часовок-->
+<!--ВНИМАНИЕ! Использует отсылки к DICTIONARY-->
+<message class="CALENDAR" version="1" releasestamp="20211228000001">
+	<year id="2021">
+		<month id="01" name="январь" shortname="jan" days="31">
+			<workdays>
+				<day id="01" workday="0" onduty="0"/>
+				<day id="02" workday="0" onduty="0"/>
+				<day id="03" workday="0" onduty="1"/>
+				<day id="04" workday="0" onduty="1"/>
+				<day id="05" workday="0" onduty="1"/>
+				<day id="06" workday="0" onduty="0"/>
+				<day id="07" workday="0" onduty="0"/>
+				<day id="08" workday="0" onduty="0"/>
+				<day id="09" workday="0" onduty="0"/>
+				<day id="10" workday="0" onduty="0"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="0" onduty="0"/>
+				<day id="17" workday="0" onduty="0"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="0" onduty="0"/>
+				<day id="24" workday="0" onduty="0"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="0" onduty="0"/>
+				<day id="31" workday="0" onduty="0"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="21" starthour2="" endhour2=""/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="11" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="14" starthour2="18" endhour2="20"/>
+				<tradezone id="05" starthour1="10" endhour1="13" starthour2="19" endhour2="22"/>			
+			</sopower>				
+			<atspower>
+			</atspower>
+		</month>
+		<month id="02" name="февраль" shortname="фев" days="28">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="1" onduty="1"/>
+				<day id="04" workday="1" onduty="1"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="0" onduty="0"/>
+				<day id="07" workday="0" onduty="0"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="0" onduty="0"/>
+				<day id="14" workday="0" onduty="0"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="0" onduty="0"/>
+				<day id="22" workday="0" onduty="0"/>
+				<day id="23" workday="0" onduty="0"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="0" onduty="0"/>
+				<day id="28" workday="0" onduty="0"/>			
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="13" starthour2="17" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="12" endhour2="17"/>
+				<tradezone id="04" starthour1="09" endhour1="13" starthour2="19" endhour2="21"/>
+				<tradezone id="05" starthour1="10" endhour1="12" starthour2="20" endhour2="23"/>
+			</sopower>				
+			<atspower>
+			</atspower>
+		</month>
+		<month id="03" name="март" shortname="mar" days="31">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="1" onduty="1"/>
+				<day id="04" workday="1" onduty="1"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="0" onduty="0"/>
+				<day id="07" workday="0" onduty="0"/>
+				<day id="08" workday="0" onduty="0"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="0" onduty="0"/>
+				<day id="14" workday="0" onduty="0"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="0" onduty="0"/>
+				<day id="21" workday="0" onduty="0"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="0" onduty="0"/>
+				<day id="28" workday="0" onduty="0"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="1" onduty="1"/>
+				<day id="31" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="21" starthour2="" endhour2=""/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="13" endhour2="17"/>
+				<tradezone id="04" starthour1="09" endhour1="14" starthour2="21" endhour2="21"/>
+				<tradezone id="05" starthour1="09" endhour1="11" starthour2="21" endhour2="23"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="04" name="апрель" shortname="apr" days="30">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="0" onduty="0"/>
+				<day id="04" workday="0" onduty="0"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="0" onduty="0"/>
+				<day id="11" workday="0" onduty="0"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="0" onduty="0"/>
+				<day id="18" workday="0" onduty="0"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="0" onduty="0"/>
+				<day id="25" workday="0" onduty="0"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="15" starthour2="18" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="13" endhour2="17"/>
+				<tradezone id="04" starthour1="09" endhour1="15" starthour2="" endhour2=""/>
+				<tradezone id="05" starthour1="10" endhour1="12" starthour2="21" endhour2="23"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="05" name="май" shortname="may" days="31">
+			<workdays>
+				<day id="01" workday="0" onduty="0"/>
+				<day id="02" workday="0" onduty="0"/>
+				<day id="03" workday="0" onduty="0"/>
+				<day id="04" workday="1" onduty="1"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="0" onduty="0"/>
+				<day id="09" workday="0" onduty="0"/>
+				<day id="10" workday="0" onduty="0"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="0" onduty="0"/>
+				<day id="16" workday="0" onduty="0"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="0" onduty="0"/>
+				<day id="23" workday="0" onduty="0"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="0" onduty="0"/>
+				<day id="30" workday="0" onduty="0"/>
+				<day id="31" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="15" starthour2="20" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="13" endhour2="17"/>
+				<tradezone id="04" starthour1="09" endhour1="15" starthour2="" endhour2=""/>
+				<tradezone id="05" starthour1="10" endhour1="13" starthour2="21" endhour2="23"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="06" name="июнь" shortname="jun" days="30">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="1" onduty="1"/>
+				<day id="04" workday="1" onduty="1"/>
+				<day id="05" workday="0" onduty="0"/>
+				<day id="06" workday="0" onduty="0"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="0" onduty="0"/>
+				<day id="13" workday="0" onduty="0"/>
+				<day id="14" workday="0" onduty="0"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="0" onduty="0"/>
+				<day id="20" workday="0" onduty="0"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="0" onduty="0"/>
+				<day id="27" workday="0" onduty="0"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="16" starthour2="20" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="11" starthour2="13" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="16" starthour2="" endhour2=""/>
+				<tradezone id="05" starthour1="10" endhour1="14" starthour2="22" endhour2="23"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="07" name="июль" shortname="jul" days="31">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="0" onduty="0"/>
+				<day id="04" workday="0" onduty="0"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="0" onduty="0"/>
+				<day id="11" workday="0" onduty="0"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="0" onduty="0"/>
+				<day id="18" workday="0" onduty="0"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="0" onduty="0"/>
+				<day id="25" workday="0" onduty="0"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="1" onduty="1"/>
+				<day id="31" workday="0" onduty="0"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="17" starthour2="20" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="17" starthour2="" endhour2=""/>
+				<tradezone id="04" starthour1="11" endhour1="17" starthour2="" endhour2=""/>
+				<tradezone id="05" starthour1="10" endhour1="15" starthour2="20" endhour2="23"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="08" name="август" shortname="aug" days="31">
+			<workdays>
+				<day id="01" workday="0" onduty="0"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="1" onduty="1"/>
+				<day id="04" workday="1" onduty="1"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="0" onduty="0"/>
+				<day id="08" workday="0" onduty="0"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="0" onduty="0"/>
+				<day id="15" workday="0" onduty="0"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="0" onduty="0"/>
+				<day id="22" workday="0" onduty="0"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="0" onduty="0"/>
+				<day id="29" workday="0" onduty="0"/>
+				<day id="30" workday="1" onduty="1"/>
+				<day id="31" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="21" starthour2="" endhour2=""/>
+				<tradezone id="02" starthour1="05" endhour1="10" starthour2="14" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="16" starthour2="" endhour2=""/>
+				<tradezone id="05" starthour1="11" endhour1="14" starthour2="19" endhour2="23"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="09" name="сентябрь" shortname="sep" days="30">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="1" onduty="1"/>
+				<day id="04" workday="0" onduty="0"/>
+				<day id="05" workday="0" onduty="0"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="0" onduty="0"/>
+				<day id="12" workday="0" onduty="0"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="0" onduty="0"/>
+				<day id="19" workday="0" onduty="0"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="0" onduty="0"/>
+				<day id="26" workday="0" onduty="0"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="15" starthour2="18" endhour2="21"/>			
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="13" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="15" starthour2="21" endhour2="22"/>
+				<tradezone id="05" starthour1="11" endhour1="12" starthour2="21" endhour2="23"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="10" name="октябрь" shortname="oct" days="31">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="0" onduty="0"/>
+				<day id="03" workday="0" onduty="0"/>
+				<day id="04" workday="1" onduty="1"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="0" onduty="0"/>
+				<day id="10" workday="0" onduty="0"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="0" onduty="0"/>
+				<day id="17" workday="0" onduty="0"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="0" onduty="0"/>
+				<day id="24" workday="0" onduty="0"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="0" onduty="0"/>
+				<day id="31" workday="0" onduty="0"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="21" starthour2="" endhour2=""/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="12" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="12" starthour2="19" endhour2="21"/>
+				<tradezone id="05" starthour1="10" endhour1="13" starthour2="20" endhour2="23"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="11" name="ноябрь" shortname="nov" days="30">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="1" onduty="1"/>
+				<day id="04" workday="0" onduty="0"/>
+				<day id="05" workday="0" onduty="0"/>
+				<day id="06" workday="0" onduty="0"/>
+				<day id="07" workday="0" onduty="0"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="0" onduty="0"/>
+				<day id="14" workday="0" onduty="0"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="0" onduty="0"/>
+				<day id="21" workday="0" onduty="0"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="0" onduty="0"/>
+				<day id="28" workday="0" onduty="0"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="11" starthour2="16" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="11" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="11" starthour2="18" endhour2="20"/>
+				<tradezone id="05" starthour1="10" endhour1="13" starthour2="20" endhour2="22"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="12" name="декабрь" shortname="dec" days="31">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="1" onduty="1"/>
+				<day id="04" workday="0" onduty="0"/>
+				<day id="05" workday="0" onduty="0"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="0" onduty="0"/>
+				<day id="12" workday="0" onduty="0"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="0" onduty="0"/>
+				<day id="19" workday="0" onduty="0"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="0" onduty="0"/>
+				<day id="26" workday="0" onduty="0"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="1" onduty="1"/>
+				<day id="31" workday="0" onduty="0"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="12" starthour2="15" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="11" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="12" starthour2="17" endhour2="20"/>
+				<tradezone id="05" starthour1="09" endhour1="12" starthour2="19" endhour2="22"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+	</year>
+	<year id="2022">
+		<month id="01" name="январь" shortname="jan" days="31">
+			<workdays>
+				<day id="01" workday="0" onduty="0"/>
+				<day id="02" workday="0" onduty="0"/>
+				<day id="03" workday="0" onduty="1"/>
+				<day id="04" workday="0" onduty="1"/>
+				<day id="05" workday="0" onduty="1"/>
+				<day id="06" workday="0" onduty="0"/>
+				<day id="07" workday="0" onduty="0"/>
+				<day id="08" workday="0" onduty="0"/>
+				<day id="09" workday="0" onduty="0"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="0" onduty="0"/>
+				<day id="16" workday="0" onduty="0"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="0" onduty="0"/>
+				<day id="23" workday="0" onduty="0"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="0" onduty="0"/>
+				<day id="30" workday="0" onduty="0"/>
+				<day id="31" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="21" starthour2="" endhour2=""/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="11" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="14" starthour2="18" endhour2="20"/>
+				<tradezone id="05" starthour1="03" endhour1="06" starthour2="12" endhour2="15"/>
+			</sopower>				
+			<atspower>
+			</atspower>
+		</month>
+		<month id="02" name="февраль" shortname="фев" days="28">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="1" onduty="1"/>
+				<day id="04" workday="1" onduty="1"/>
+				<day id="05" workday="0" onduty="0"/>
+				<day id="06" workday="0" onduty="0"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="0" onduty="0"/>
+				<day id="13" workday="0" onduty="0"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="0" onduty="0"/>
+				<day id="20" workday="0" onduty="0"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="0" onduty="0"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="0" onduty="0"/>
+				<day id="27" workday="0" onduty="0"/>
+				<day id="28" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+			</sopower>
+				<tradezone id="01" starthour1="08" endhour1="13" starthour2="17" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="12" endhour2="17"/>
+				<tradezone id="04" starthour1="09" endhour1="13" starthour2="19" endhour2="21"/>
+				<tradezone id="05" starthour1="03" endhour1="05" starthour2="13" endhour2="16"/>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="03" name="март" shortname="mar" days="31">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="1" onduty="1"/>
+				<day id="04" workday="1" onduty="1"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="0" onduty="0"/>
+				<day id="07" workday="0" onduty="0"/>
+				<day id="08" workday="0" onduty="0"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="0" onduty="0"/>
+				<day id="13" workday="0" onduty="0"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="0" onduty="0"/>
+				<day id="20" workday="0" onduty="0"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="0" onduty="0"/>
+				<day id="27" workday="0" onduty="0"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="1" onduty="1"/>
+				<day id="31" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="21" starthour2="" endhour2=""/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="13" endhour2="17"/>
+				<tradezone id="04" starthour1="09" endhour1="14" starthour2="21" endhour2=""/>
+				<tradezone id="05" starthour1="02" endhour1="04" starthour2="14" endhour2="16"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="04" name="апрель" shortname="apr" days="30">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="0" onduty="0"/>
+				<day id="03" workday="0" onduty="0"/>
+				<day id="04" workday="1" onduty="1"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="0" onduty="0"/>
+				<day id="10" workday="0" onduty="0"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="0" onduty="0"/>
+				<day id="17" workday="0" onduty="0"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="0" onduty="0"/>
+				<day id="24" workday="0" onduty="0"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="0" onduty="0"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="15" starthour2="18" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="13" endhour2="17"/>
+				<tradezone id="04" starthour1="09" endhour1="15" starthour2="" endhour2=""/>
+				<tradezone id="05" starthour1="03" endhour1="05" starthour2="14" endhour2="16"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="05" name="май" shortname="may" days="31">
+			<workdays>
+				<day id="01" workday="0" onduty="0"/>
+				<day id="02" workday="0" onduty="0"/>
+				<day id="03" workday="0" onduty="0"/>
+				<day id="04" workday="1" onduty="1"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="0" onduty="0"/>
+				<day id="08" workday="0" onduty="0"/>
+				<day id="09" workday="0" onduty="0"/>
+				<day id="10" workday="0" onduty="0"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="0" onduty="0"/>
+				<day id="15" workday="0" onduty="0"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="0" onduty="0"/>
+				<day id="22" workday="0" onduty="0"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="0" onduty="0"/>
+				<day id="29" workday="0" onduty="0"/>
+				<day id="30" workday="1" onduty="1"/>
+				<day id="31" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="15" starthour2="20" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="13" endhour2="17"/>
+				<tradezone id="04" starthour1="09" endhour1="15" starthour2="" endhour2=""/>
+				<tradezone id="05" starthour1="03" endhour1="06" starthour2="14" endhour2="16"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="06" name="июнь" shortname="jun" days="30">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="1" onduty="1"/>
+				<day id="04" workday="0" onduty="0"/>
+				<day id="05" workday="0" onduty="0"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="0" onduty="0"/>
+				<day id="12" workday="0" onduty="0"/>
+				<day id="13" workday="0" onduty="0"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="0" onduty="0"/>
+				<day id="19" workday="0" onduty="0"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="0" onduty="0"/>
+				<day id="26" workday="0" onduty="0"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="16" starthour2="20" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="11" starthour2="13" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="16" starthour2="" endhour2=""/>
+				<tradezone id="05" starthour1="03" endhour1="07" starthour2="15" endhour2="16"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="07" name="июль" shortname="jul" days="31">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="0" onduty="0"/>
+				<day id="03" workday="0" onduty="0"/>
+				<day id="04" workday="1" onduty="1"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="0" onduty="0"/>
+				<day id="10" workday="0" onduty="0"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="0" onduty="0"/>
+				<day id="17" workday="0" onduty="0"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="0" onduty="0"/>
+				<day id="24" workday="0" onduty="0"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="0" onduty="0"/>
+				<day id="31" workday="0" onduty="0"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="17" starthour2="20" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="17" starthour2="" endhour2=""/>
+				<tradezone id="04" starthour1="11" endhour1="17" starthour2="" endhour2=""/>
+				<tradezone id="05" starthour1="03" endhour1="08" starthour2="13" endhour2="16"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="08" name="август" shortname="aug" days="31">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="1" onduty="1"/>
+				<day id="04" workday="1" onduty="1"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="0" onduty="0"/>
+				<day id="07" workday="0" onduty="0"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="0" onduty="0"/>
+				<day id="14" workday="0" onduty="0"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="0" onduty="0"/>
+				<day id="21" workday="0" onduty="0"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="0" onduty="0"/>
+				<day id="28" workday="0" onduty="0"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="1" onduty="1"/>
+				<day id="31" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="21" starthour2="" endhour2=""/>
+				<tradezone id="02" starthour1="05" endhour1="10" starthour2="14" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="16" starthour2="" endhour2=""/>
+				<tradezone id="05" starthour1="04" endhour1="07" starthour2="12" endhour2="16"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>		
+		<month id="09" name="сентябрь" shortname="sep" days="30">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="0" onduty="0"/>
+				<day id="04" workday="0" onduty="0"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="0" onduty="0"/>
+				<day id="11" workday="0" onduty="0"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="0" onduty="0"/>
+				<day id="18" workday="0" onduty="0"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="0" onduty="0"/>
+				<day id="25" workday="0" onduty="0"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="15" starthour2="18" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="13" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="15" starthour2="21" endhour2="22"/>
+				<tradezone id="05" starthour1="04" endhour1="05" starthour2="14" endhour2="16"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="10" name="октябрь" shortname="oct" days="31">
+			<workdays>
+				<day id="01" workday="0" onduty="0"/>
+				<day id="02" workday="0" onduty="0"/>
+				<day id="03" workday="1" onduty="1"/>
+				<day id="04" workday="1" onduty="1"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="0" onduty="0"/>
+				<day id="09" workday="0" onduty="0"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="0" onduty="0"/>
+				<day id="16" workday="0" onduty="0"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="0" onduty="0"/>
+				<day id="23" workday="0" onduty="0"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="0" onduty="0"/>
+				<day id="30" workday="0" onduty="0"/>
+				<day id="31" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="21" starthour2="" endhour2=""/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="12" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="12" starthour2="19" endhour2="21"/>
+				<tradezone id="05" starthour1="03" endhour1="06" starthour2="13" endhour2="16"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="11" name="ноябрь" shortname="nov" days="30">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="1" onduty="1"/>
+				<day id="04" workday="0" onduty="0"/>
+				<day id="05" workday="0" onduty="0"/>
+				<day id="06" workday="0" onduty="0"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="1" onduty="1"/>
+				<day id="11" workday="1" onduty="1"/>
+				<day id="12" workday="0" onduty="0"/>
+				<day id="13" workday="0" onduty="0"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="1" onduty="1"/>
+				<day id="18" workday="1" onduty="1"/>
+				<day id="19" workday="0" onduty="0"/>
+				<day id="20" workday="0" onduty="0"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="1" onduty="1"/>
+				<day id="25" workday="1" onduty="1"/>
+				<day id="26" workday="0" onduty="0"/>
+				<day id="27" workday="0" onduty="0"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="1" onduty="1"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="11" starthour2="16" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="11" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="11" starthour2="18" endhour2="20"/>
+				<tradezone id="05" starthour1="03" endhour1="06" starthour2="13" endhour2="15"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="12" name="декабрь" shortname="dec" days="31">
+			<workdays>
+				<day id="01" workday="1" onduty="1"/>
+				<day id="02" workday="1" onduty="1"/>
+				<day id="03" workday="0" onduty="0"/>
+				<day id="04" workday="0" onduty="0"/>
+				<day id="05" workday="1" onduty="1"/>
+				<day id="06" workday="1" onduty="1"/>
+				<day id="07" workday="1" onduty="1"/>
+				<day id="08" workday="1" onduty="1"/>
+				<day id="09" workday="1" onduty="1"/>
+				<day id="10" workday="0" onduty="0"/>
+				<day id="11" workday="0" onduty="0"/>
+				<day id="12" workday="1" onduty="1"/>
+				<day id="13" workday="1" onduty="1"/>
+				<day id="14" workday="1" onduty="1"/>
+				<day id="15" workday="1" onduty="1"/>
+				<day id="16" workday="1" onduty="1"/>
+				<day id="17" workday="0" onduty="0"/>
+				<day id="18" workday="0" onduty="0"/>
+				<day id="19" workday="1" onduty="1"/>
+				<day id="20" workday="1" onduty="1"/>
+				<day id="21" workday="1" onduty="1"/>
+				<day id="22" workday="1" onduty="1"/>
+				<day id="23" workday="1" onduty="1"/>
+				<day id="24" workday="0" onduty="0"/>
+				<day id="25" workday="0" onduty="0"/>
+				<day id="26" workday="1" onduty="1"/>
+				<day id="27" workday="1" onduty="1"/>
+				<day id="28" workday="1" onduty="1"/>
+				<day id="29" workday="1" onduty="1"/>
+				<day id="30" workday="1" onduty="1"/>
+				<day id="31" workday="0" onduty="0"/>
+			</workdays>
+			<sopower>
+				<tradezone id="01" starthour1="08" endhour1="12" starthour2="15" endhour2="21"/>
+				<tradezone id="02" starthour1="05" endhour1="08" starthour2="11" endhour2="17"/>
+				<tradezone id="04" starthour1="10" endhour1="12" starthour2="17" endhour2="20"/>
+				<tradezone id="05" starthour1="03" endhour1="05" starthour2="12" endhour2="15"/>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+	</year>
+	<year id="2023">
+		<month id="01" name="январь" shortname="jan" days="31">
+			<workdays>				
+			</workdays>
+			<sopower>				
+			</sopower>				
+			<atspower>
+			</atspower>
+		</month>
+		<month id="02" name="февраль" shortname="фев" days="28">
+			<workdays>
+			</workdays>
+			<sopower>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="03" name="март" shortname="mar" days="31">
+			<workdays>
+			</workdays>
+			<sopower>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="04" name="апрель" shortname="apr" days="30">
+			<workdays>
+			</workdays>
+			<sopower>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="05" name="май" shortname="may" days="31">
+			<workdays>
+			</workdays>
+			<sopower>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="06" name="июнь" shortname="jun" days="30">
+			<workdays>
+			</workdays>
+			<sopower>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="07" name="июль" shortname="jul" days="31">
+			<workdays>
+			</workdays>
+			<sopower>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="08" name="август" shortname="aug" days="31">
+			<workdays>
+			</workdays>
+			<sopower>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>		
+		<month id="09" name="сентябрь" shortname="sep" days="30">
+			<workdays>
+			</workdays>
+			<sopower>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="10" name="октябрь" shortname="oct" days="31">
+			<workdays>
+			</workdays>
+			<sopower>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="11" name="ноябрь" shortname="nov" days="30">
+			<workdays>
+			</workdays>
+			<sopower>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+		<month id="12" name="декабрь" shortname="dec" days="31">
+			<workdays>
+			</workdays>
+			<sopower>
+			</sopower>
+			<atspower>
+			</atspower>
+		</month>
+	</year>
+</message>

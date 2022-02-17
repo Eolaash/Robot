@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!--Конфигурация конвертора наименований и кодов входящих AREA-->
+<message class="CONVERTER" version="1" releasestamp="20180408110008">
+	<trader id="TRADERCD" name="TraderName" inn="0000000000">
+		<source inn="0000000000" name="Name">
+			<area sourceid="0000000001" toid="0000000002" toname="NewName">
+				<measuringpoint sourcecode="000000000000001" tocode="000000000000002" toname="NewName">
+					<measuringchannel sourcecode="01" tocode="01" todesc="счетчик, акт. прием"/>
+					<measuringchannel sourcecode="03" tocode="03" todesc="счетчик, реакт. прием"/>
+				</measuringpoint>				
+			</area>
+		</source>		
+	</trader>
+</message>

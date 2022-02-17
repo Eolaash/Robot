@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="Windows-1251" standalone="yes"?>
+<!--Сформировано 24.05.2018 17:08:37 Инжектор80000 v1-->
+<message class="FRAME" version="1" releasestamp="20220121145936">
+	<trader id="TRADERCD" name="CompanyName" inn="0000000000">
+		<gtp id="PTRADER1" aiiscode="0000000000">
+			<area id="0000000000" type="1" time-zone="1">
+				<measuringpoint code="562130140218201" voltage="400" pointtype="general" name="РУ-0,4 кВ" objectname="КТП 10 кВ №00297" deviceid="559A7B5B54E90471E0530A01490A6E4F">
+					<measuringchannel code="01" period="30"/>
+					<measuringchannel code="03" period="30"/>
+				</measuringpoint>
+				<measuringpoint code="562130140218101" voltage="400" pointtype="general" name="РУ-0,4 кВ" objectname="КТП 10 кВ №00297" deviceid="559A7B5B54E90471E0530A01490A6E4F">
+					<measuringchannel code="01" period="30"/>
+					<measuringchannel code="03" period="30"/>
+				</measuringpoint>
+			</area>
+		</gtp>		
+	</trader>
+</message>

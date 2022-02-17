@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="Windows-1251" standalone="yes"?>
+<!--Конфигурация для общих данных и их взаимоотношений-->
+<message class="DICTIONARY" version="1" releasestamp="20180717131241">
+	<timezones>
+		<timezone id="1" utc="3"/>
+		<timezone id="3" utc="10"/>
+	</timezones>
+	<tradezones>
+		<tradezone id="01" timezone="1" trademode="1" name="Первая ценовая зона"/>
+		<tradezone id="02" timezone="1" trademode="1" name="Вторая ценовая зона"/>
+		<tradezone id="03" timezone="1" trademode="0" name="Калининградская область"/>
+		<tradezone id="04" timezone="1" trademode="0" name="Коми и Архангельская"/>
+		<tradezone id="05" timezone="3" trademode="0" name="Дальний Восток"/>
+	</tradezones>
+	<subjects>
+		<subject id="03" tradezone="01" utc="3" name="Краснодарский край"/>
+		<subject id="04" tradezone="02" utc="7" name="Красноярский край"/>
+		<subject id="10" tradezone="05" utc="9" name="Амурская область"/>
+		<subject id="36" tradezone="01" utc="4" name="Самарская область"/>
+		<subject id="46" tradezone="01" utc="3" name="Московская область"/>
+		<subject id="53" tradezone="01" utc="5" name="Оренбургская область"/>
+		<subject id="56" tradezone="01" utc="3" name="Пензенская область"/>
+		<subject id="57" tradezone="01" utc="5" name="Пермский край"/>		
+		<subject id="63" tradezone="01" utc="4" name="Саратовская область"/>
+		<subject id="69" tradezone="01" utc="7" name="Томская область"/>
+		<subject id="71" tradezone="01" utc="5" name="Тюменская область"/>		
+		<subject id="71100" tradezone="01" utc="5" name="Ханты-Мансийский автономный округ - Югра (Тюменская область)"/>
+		<subject id="73" tradezone="01" utc="4" name="Ульяновская область"/>
+		<subject id="87" tradezone="04" utc="3" name="Республика Коми"/>
+		<subject id="94" tradezone="01" utc="4" name="Удмуртская Республика"/>
+		<subject id="95" tradezone="02" utc="7" name="Республика Хакасия"/>
+	</subjects>
+</message>

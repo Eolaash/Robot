@@ -1,0 +1,22 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<!-- XML Schema Generated from XML Document on Mon Jul 16 2018 16:26:08 GMT+0400 (Самарское стандартное время) -->
+<!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+	<xs:element name="DocumentElement">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="row" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="date" type="xs:dateTime"></xs:element>
+							<xs:element name="hour" type="xs:int"></xs:element>
+							<xs:element name="sub_rf_id" type="xs:int"></xs:element>
+							<xs:element name="cons_value" type="xs:double"></xs:element>
+							<xs:element name="reserve_up_calc" type="xs:double"></xs:element>
+							<xs:element name="reserve_down_calc" type="xs:double"></xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

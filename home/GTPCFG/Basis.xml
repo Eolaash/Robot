@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!--Конфигурация всех ГТП и сечений-->
+<message class="BASIS" version="1" releasestamp="20210208100403">
+	<trader id="TRADERCD" name="TraderName" inn="0000000000">		
+		<gtp id="PTRADER1" aiiscode="0000000000">
+			<name>HostedCompany</name>			
+			<settings subjectid="0" owngen="0"/>
+			<exchange>
+				<item id="BRFORECAST" enabled="1" start="1430" end="1530" shift="1" depth="1">
+					<reportto enabled="1" address="user@domain.ru" desc=""/>					
+				</item>
+				<item id="30308" enabled="1">
+					<recievefrom enabled="1" silent="0" warnlevel="0" address="" domain="@domain.com" desc=""/>										
+					<reportto enabled="1" warnlevel="1" address="user@domain.ru" desc=""/>
+				</item>
+				<item id="F63" enabled="1" start="0700" end="1100" login="xxxxxxxx" gateignore="1">
+					<reportto enabled="1" warnlevel="0" address="user@domain.ru" desc=""/>					
+				</item>
+			</exchange>
+			<section id="PTRADER2" timezone="1">
+				<version id="1" status="closed" created="20150101" activated="20150101" closed="20171231">
+					<name>AnotherHostedCompany</name>
+					<traderid>TRADERCX</traderid> 
+					<tradername>AnotherTraderCompany</tradername>
+					<area id="0000000000" type="1"/>
+					<area id="0000000000" type="0"/>
+				</version>
+				<version id="2" status="actice" created="20170101" activated="20180101" closed="">
+					<name>AnotherHostedCompany</name>
+					<traderid>TRADERCX</traderid> 
+					<tradername>AnotherTraderCompany</tradername>
+					<area id="0000000000" type="1"/>
+					<area id="0000000000" type="0"/>
+					<exchange>
+						<item id="80020" mode="normal">
+							<recievefrom enabled="1" silent="1" address="" domain="@domain.com" desc=""/>							
+							<reportto enabled="1" address="user@domain.com" desc=""/>							
+							<mailto sign="1" encrypt="1" enabled="1" address="iasuku_crypto@rosenergo.com" desc="ATS"/>							
+						</item>
+					</exchange>
+				</version>				
+			</section>
+		</gtp>
+	</trader>
+</message>

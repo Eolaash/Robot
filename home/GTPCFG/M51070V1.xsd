@@ -1,0 +1,50 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="package">
+		<xs:complexType>
+			<!--в макете не может быть гибридной составляющей, либо переток, либо потребление-->
+			<xs:choice>
+				<xs:element name="adjacent" minOccurs="1" maxOccurs="unbounded" type="adjacent"/>
+				<xs:element name="group" minOccurs="1" maxOccurs="1" type="group"/>
+			</xs:choice>
+			<xs:attribute type="xs:int" name="class" use="required" fixed="51070"/>
+			<xs:attribute type="xs:byte" name="version" use="required" fixed="1"/>			
+			<xs:attribute type="xs:string" name="id" use="optional"/>
+			<xs:attribute name="kpokod" use="required" type="longnumeric"/>			
+			<xs:attribute name="sender" use="required" type="longnumeric"/>
+			<xs:attribute name="created" use="required" type="atsdatetime"/>
+		</xs:complexType>
+	</xs:element>
+	<!--описание типа FLOW-->
+	<xs:complexType name="powerinfo">
+		<xs:attribute type="xs:string" name="begin" use="required"/>
+		<xs:attribute type="xs:string" name="end" use="required"/>
+		<xs:attribute type="xs:int" name="power" use="required"/>	
+	</xs:complexType>
+	<!--описание типа ADJACENT-->
+	<xs:complexType name="adjacent">
+		<xs:sequence>
+			<xs:element name="flow" minOccurs="672" maxOccurs="744" type="powerinfo"/>
+		</xs:sequence>
+		<xs:attribute type="xs:string" name="code-to" use="required"/>
+		<xs:attribute type="xs:string" name="code-from" use="required"/>
+	</xs:complexType>
+	<!--описание типа GROUP-->
+	<xs:complexType name="group">
+		<xs:sequence>
+			<xs:element name="flow" minOccurs="672" maxOccurs="744" type="powerinfo"/>
+		</xs:sequence>
+		<xs:attribute type="xs:string" name="code" use="required"/>
+	</xs:complexType>
+	<!--описание типа ограничения LongNumeric-->
+	<xs:simpleType name="longnumeric">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([0-9])*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--описание типа ограничения ATSDateTime-->
+	<xs:simpleType name="atsdatetime">
+		<xs:restriction base="xs:string">			
+			<xs:pattern value="[0-9]{14}GMT[+][0-9]{1,2}"/>		
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
