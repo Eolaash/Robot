@@ -70,7 +70,7 @@ Public Function fGetAttr(inNode, inAttributeName, outValue, Optional inDefaultVa
     
     On Error Resume Next
     
-        tValue = inNode.GetAttribute(inAttributeName) 'проичтаем аттрибут
+        tValue = inNode.GetAttribute(inAttributeName) 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         If IsNull(tValue) Then: Exit Function
         If Err.Number <> 0 Then: Exit Function
         
@@ -92,31 +92,6 @@ Dim tResult
     If Not fXMLSmartUpdate("2,3") Then: Exit Sub
     tResult = fGetHashString(gXMLFrame.XML)
     Debug.Print "MD5: " & tResult
-End Sub
-
-Public Sub fAX_TestB()
-Dim tEnergyObject As New CEnergyAPI
-    'Set tEnergyObject = New CEnergyAPI
-    Debug.Print "================="
-    tEnergyObject.PrintLog = True
-    If tEnergyObject.IsActive Then
-        tEnergyObject.SetCredentials "engtpp1005", "uygWcBLg"
-        If Not tEnergyObject.SendRequest(2, DateSerial(2019, 1, 17), 1, "PBELKAM6:1225") Then
-        'If Not tEnergyObject.SendRequest(1, DateSerial(2019, 1, 1), 4) Then
-        'If Not tEnergyObject.SendRequest(1, DateSerial(2018, 12, 2), 4) Then
-        'If Not tEnergyObject.SendRequest(0) Then
-            Debug.Print tEnergyObject.ErrorText
-        Else
-            'MsgBox tEnergyObject.ResponseText
-            If Not tEnergyObject.ReadResponse Then
-                Debug.Print tEnergyObject.ResponseSOAPText
-                Debug.Print "FAIL"
-            End If
-        End If
-    Else
-        Debug.Print tEnergyObject.ErrorText
-    End If
-    Set tEnergyObject = Nothing
 End Sub
 
 Public Function fExtractMD5fromText(inText, Optional inSplitter = ":")
