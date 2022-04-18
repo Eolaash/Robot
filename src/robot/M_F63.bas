@@ -56,7 +56,7 @@ Public Sub fForm63Manual()
     If Not fLocalInit Then: Exit Sub
     If Not fXMLSmartUpdate("BASIS,FRAME,CALENDAR,R80020DB,XSD80020V2,DICTIONARY,CALCROUTE,CALCDB,XSD80040V2,F63DB,CREDENTIALS") Then: Exit Sub
     
-    fF63ExchangeScan gLocalUTC, gTraderInfo.ID, "PBELKA11", True, True, True, -9, 0
+    fF63ExchangeScan gLocalUTC, gTraderInfo.ID, "PBELKA22", True, True, True, -1, 0, True
     'fF63ExchangeScan gLocalUTC, gTraderInfo.ID, "PBELKAM7", True, True, False, -2, 0
     'tCurrentDateTime = Now()
     'tResult = fWorkDayShiftAdv(CDate(tCurrentDateTime), -3, 0, tFirstDay, tErrorText)
@@ -64,7 +64,7 @@ Public Sub fForm63Manual()
 End Sub
 
 ' F-01 // Базовая рабочая функция по перебору нод BASIS
-Private Sub fF63ExchangeScan(inLocalUTC, inTraderID, Optional inGTPCode = vbNullString, Optional inForceIgnoreGate = False, Optional inForceIgnoreTimeLimits = False, Optional inForceUncommIgnore = False, Optional inForceDayShift = 0, Optional inForceDaysToReport = 0)
+Private Sub fF63ExchangeScan(inLocalUTC, inTraderID, Optional inGTPCode = vbNullString, Optional inForceIgnoreGate = False, Optional inForceIgnoreTimeLimits = False, Optional inForceUncommIgnore = False, Optional inForceDayShift = 0, Optional inForceDaysToReport = 0, Optional inNoDataReplace = False)
 Dim tXPathString, tNode, tNodes, tLogTag
 ' 00 // Предопределения и первичная проверка
     tLogTag = fGetLogTag("F63EXSCN")
@@ -86,23 +86,24 @@ Dim tXPathString, tNode, tNodes, tLogTag
 
 ' 02 // Обработка найденных нод
     For Each tNode In tNodes
-        fF63ExchangeItem tNode, inLocalUTC, inForceIgnoreGate, inForceIgnoreTimeLimits, Fix(inForceDayShift), Fix(inForceDaysToReport), inForceUncommIgnore
+        fF63ExchangeItem tNode, inLocalUTC, inForceIgnoreGate, inForceIgnoreTimeLimits, Fix(inForceDayShift), Fix(inForceDaysToReport), inForceUncommIgnore, inNoDataReplace
     Next
 End Sub
 
 ' F-02 // Базовая функция обработки найденных в BASIS нод
-Private Sub fF63ExchangeItem(inNode, inLocalUTC, inForceIgnoreGate, inForceIgnoreTimeLimits, inForceDayShift, inForceDaysToReport, inForceUncommIgnore) ', inTraderID)
+Private Sub fF63ExchangeItem(inNode, inLocalUTC, inForceIgnoreGate, inForceIgnoreTimeLimits, inForceDayShift, inForceDaysToReport, inForceUncommIgnore, inNoDataReplace) ', inTraderID)
 Dim tLogTag, tGTPID, tTimeZoneUTC, tErrorText, tActiveDays, tIndex, tCurrentDay, tFirstDay, tCurrentDateTime, tCalcValue, tSectionList, tIsUpdated, tCalcReady, tCreateNewNode, tXMLChanged
-Dim tCurrentReportNode, tTempValue, tNeedToSend, tLogin, tPassword, tGateIgnore, tUncommIgnore, tTraderID
+Dim tCurrentReportNode, tTempValue, tNeedToSend, tLogin, tPassword, tGateIgnore, tUncommIgnore, tNoDataReplace, tTraderID, tReplaceValue
 ' 00 // Предопределения
     tLogTag = fGetLogTag("fF63ExchangeItem")
     
 ' 01 // Чтение параметров входящей ноды
-    If Not fReadBasisData(inNode, tTraderID, tGTPID, tTimeZoneUTC, tLogin, tPassword, tGateIgnore, tUncommIgnore, tErrorText) Then
+    If Not fReadBasisData(inNode, tTraderID, tGTPID, tTimeZoneUTC, tLogin, tPassword, tGateIgnore, tUncommIgnore, tNoDataReplace, tErrorText) Then
         uCDebugPrint tLogTag, 2, "fReadBasisData > " & tErrorText
         Exit Sub
     End If
     
+    ' аварийные триггеры и оповещения к ним (из режима ручного управления)
     If inForceIgnoreGate Then
         uCDebugPrint tLogTag, 1, "Игнорирование ворот приема ПАК ЭНЕРГИИ включено аварийно! inForceIgnoreGate = True"
         tGateIgnore = True
@@ -114,6 +115,11 @@ Dim tCurrentReportNode, tTempValue, tNeedToSend, tLogin, tPassword, tGateIgnore,
     
     If inForceUncommIgnore Then
         uCDebugPrint tLogTag, 1, "Игнорирование некоммерческой информации при расчёте потребления включено аварийно! inForceUncommIgnore = True"
+    End If
+    
+    If inNoDataReplace Then
+        uCDebugPrint tLogTag, 1, "Использование замещающей информации при отсутствии данных разрешено аварийно! inNoDataReplace = True"
+        tNoDataReplace = True
     End If
     
 ' 02 // Определение временных рамок действия
@@ -156,7 +162,7 @@ Dim tCurrentReportNode, tTempValue, tNeedToSend, tLogin, tPassword, tGateIgnore,
         uCDebugPrint tLogTag, 2, "Ошибка получения списка сечений по ГТП " & tGTPID & ": " & tErrorText
         Exit Sub
     End If
-    uCDebugPrint tLogTag, 0, "Параметры подачи данных: tActiveDays=" & tActiveDays & "; tSectionList=" & tSectionList & "; tGateIgnore=" & tGateIgnore & "; tUncommIgnore=" & tUncommIgnore
+    uCDebugPrint tLogTag, 0, "Параметры подачи данных: tActiveDays=" & tActiveDays & "; tSectionList=" & tSectionList & "; tGateIgnore=" & tGateIgnore & "; tUncommIgnore=" & tUncommIgnore & "; tNoDataReplace=" & tNoDataReplace
     
 ' 05 // Для каждого дня в списке необходимо проверить статус расчёта и отправки данных
     For tIndex = 1 To tActiveDays
@@ -170,11 +176,24 @@ Dim tCurrentReportNode, tTempValue, tNeedToSend, tLogin, tPassword, tGateIgnore,
             uCDebugPrint tLogTag, 0, "CALCVAL=" & tCalcValue & "; ISUPDATED=" & tIsUpdated
             tCalcReady = True 'расчёт удачен
         End If
+        
+        'nodatareplacer logic [if CALC failed and REPLACER enabled]
+        If tNoDataReplace And Not tCalcReady Then
+            If Not fGetLastSuccessReportValue(gF63DB, tTraderID, tGTPID, tReplaceValue, tErrorText) Then
+                uCDebugPrint tLogTag, 1, tErrorText
+            Else
+                uCDebugPrint tLogTag, 1, "Произведено замещение значения для CALCVAL=" & tReplaceValue
+                tCalcValue = tReplaceValue
+                tCalcReady = True 'расчёт удачен (ну если считать замещение удачей)
+            End If
+        End If
+        
 ' 07 // извлечем из БД последний зарегистрированный отчет по этой ГТП на этот день
         If Not fGetCurrentReportF63DB(gF63DB, tTraderID, tGTPID, tCurrentDay, tCurrentReportNode, tErrorText) Then
             uCDebugPrint tLogTag, 2, tErrorText
             Exit Sub
         End If
+        
 ' 08 // действия с текущим отчетом (если объём не читается или не равен расчётному, то создаём новый report)
         tCreateNewNode = True 'tCalcReady 'если расчёт удачен - то предварительно мы готовы создать новый отчет, если неудачен - создание отчета не возможно
         tXMLChanged = False
@@ -191,7 +210,10 @@ Dim tCurrentReportNode, tTempValue, tNeedToSend, tLogin, tPassword, tGateIgnore,
                     If Not IsNull(tTempValue) Then
                         If IsNumeric(tTempValue) Then
                             tTempValue = CDec(tTempValue) - tCalcValue
-                            If tTempValue = 0 Then: tCreateNewNode = False
+                            If tTempValue = 0 Then
+                                tCreateNewNode = False
+                                uCDebugPrint tLogTag, 0, "Изменений в расчётах нет. Подача отчёта не требуется."
+                            End If
                         End If
                     End If
                 End If
@@ -388,6 +410,50 @@ Dim tXPathString, tRootNode, tDayNode, tNode, tLastReportIndex, tYear, tMonth, t
     End Select
 ' XX // Завершение
     fCreateNewReportF63DB = True
+End Function
+
+
+Private Function fGetLastSuccessReportValue(inXMLDB As TXMLDataBaseFile, inTraderID, inGTPID, outValue, outErrorText)
+    Dim tXPathString, tRootNode, tNodes, tNode
+    
+' 00 // Predefine
+    fGetLastSuccessReportValue = False
+    outValue = 0
+    outErrorText = vbNullString
+    
+' 01 // Check DB
+    If inXMLDB.XML Is Nothing Then
+        outErrorText = "БД <" & inXMLDB.ClassTag & "> не готова!"
+        Exit Function
+    End If
+    
+' 02 // Form request
+    Select Case inXMLDB.Version
+        Case 1, "1":
+            tXPathString = "child::trader[@id='" & inTraderID & "']/gtp[@id='" & inGTPID & "']/year/month/day/report[@calcstatus='1']"
+        Case Else:
+            outErrorText = "Версия <" & inXMLDB.Version & "> БД <" & inXMLDB.ClassTag & "> не имеет обработчика! Аномалия!"
+            Exit Function
+    End Select
+    
+' 03 // Selector init
+    Set tRootNode = inXMLDB.XML.DocumentElement
+    Set tNodes = tRootNode.SelectNodes(tXPathString)
+    
+    If tNodes.Length = 0 Then
+        outErrorText = "Для ГТП <" & inTraderID & ":" & inGTPID & "> не было найдено ни одной успешной отправки раннее! Замещение невозможно."
+        Exit Function
+    End If
+    
+' 04 // Select last success node value as replacer value
+    Set tNode = tNodes.Item(tNodes.Length - 1) 'Order by ITERATOR is direct: https://docs.microsoft.com/en-us/previous-versions/dotnet/framework/data/xml/xslt/xpathnodeiterator-in-transformations?redirectedfrom=MSDN
+    outValue = tNode.GetAttribute("value")
+    
+' XX // Fin
+    Set tNode = Nothing
+    Set tNodes = Nothing
+    Set tRootNode = Nothing
+    fGetLastSuccessReportValue = True
 End Function
 
 Private Function fGetCurrentReportF63DB(inXMLDB As TXMLDataBaseFile, inTraderID, inGTPID, inDate, outReportNode, outErrorText)
@@ -654,16 +720,18 @@ Dim tHours, tMinutes
     fExtractTimeFromHourText = True
 End Function
 
-Private Function fReadBasisData(inNode, outTraderID, outGTPID, outTimeZoneUTC, outLogin, outPassword, outGateIgnore, outUncommIgnore, outErrorText)
+Private Function fReadBasisData(inNode, outTraderID, outGTPID, outTimeZoneUTC, outLogin, outPassword, outGateIgnore, outUncommIgnore, outNoDataReplace, outErrorText)
 Dim tNode, tXPathString, tTempNode, tValue, tBasisGTPNode
 ' 00 // Предопределения
     fReadBasisData = False
     outErrorText = vbNullString
     outGTPID = vbNullString
     outTimeZoneUTC = -100
+    
 ' 01 // Чтение логина для сервиса Energy2010 из BASIS
     tXPathString = "self::node()"
     If Not fGetAttributeCFG(gXMLBasis, tXPathString, "login", outLogin, tNode, outErrorText, inNode) Then: Exit Function
+    
 ' 02 // Чтение признака игнорирования гейта
     If Not fGetAttributeCFG(gXMLBasis, tXPathString, "gateignore", outGateIgnore, tNode, outErrorText, inNode) Then: Exit Function
     If outGateIgnore = "1" Then
@@ -671,23 +739,36 @@ Dim tNode, tXPathString, tTempNode, tValue, tBasisGTPNode
     Else
         outGateIgnore = False
     End If
-' 03 // Чтение признака игнорирования некоммерческой информации в расчётах по макетам 80020/80040
+    
+' 03 // Чтение признака игнорирования гейта
+    If Not fGetAttributeCFG(gXMLBasis, tXPathString, "nodatareplace", outNoDataReplace, tNode, outErrorText, inNode) Then: Exit Function
+    If outNoDataReplace = "1" Then
+        outNoDataReplace = True
+    Else
+        outNoDataReplace = False
+    End If
+    
+' 04 // Чтение признака игнорирования некоммерческой информации в расчётах по макетам 80020/80040
     tValue = fGetAttributeCFG(gXMLBasis, tXPathString, "uncommignore", outUncommIgnore, tNode, outErrorText, inNode)
     If outUncommIgnore = "1" Then
         outUncommIgnore = True
     Else
         outUncommIgnore = False
     End If
-' 04 // Чтение кода ГТП из BASIS
+    
+' 05 // Чтение кода ГТП из BASIS
     tXPathString = "ancestor::gtp"
     If Not fGetAttributeCFG(gXMLBasis, tXPathString, "id", outGTPID, tBasisGTPNode, outErrorText, inNode) Then: Exit Function
-' 05 // Чтение кода Торговца из BASIS
+    
+' 06 // Чтение кода Торговца из BASIS
     tXPathString = "ancestor::trader"
     If Not fGetAttributeCFG(gXMLBasis, tXPathString, "id", outTraderID, tNode, outErrorText, inNode) Then: Exit Function
-' 06 // Чтение пароля для сервиса Energy2010 из BASIS
+    
+' 07 // Чтение пароля для сервиса Energy2010 из BASIS
     tXPathString = "//trader[@id='" & outTraderID & "']/service[@id='soenergy2010']/item[@login='" & outLogin & "']"
     If Not fGetAttributeCFG(gXMLCredentials, tXPathString, "password", outPassword, tNode, outErrorText) Then: Exit Function
-' 07 // Чтение кода ценовой зоны выбранной ГТП из BASIS и Dictionary
+    
+' 08 // Чтение кода ценовой зоны выбранной ГТП из BASIS и Dictionary
     ' .01 // Чтение кода региона из BASIS
     tXPathString = "child::settings"
     If Not fGetAttributeCFG(gXMLBasis, tXPathString, "subjectid", tValue, tTempNode, outErrorText, tBasisGTPNode) Then: Exit Function

@@ -132,9 +132,26 @@ Public Sub fRebuildXML80020DB()
     fSaveXMLDB gXML80020DB, False, , True, True, "Rebuild CALL!"
 End Sub
 
+Public Sub fRebuildF63DB()
+    If Not gF63DB.Active Then
+        If Not fConfiguratorInit Then: Exit Sub
+        If Not fXMLSmartUpdate("F63DB") Then: Exit Sub
+    End If
+    If Not gF63DB.Active Then: Exit Sub
+    fSaveXMLDB gF63DB, False, , True, True, "Rebuild CALL!"
+End Sub
+
 Public Sub fRebuildCalcDB()
     If Not gCalcDB.Active Then: Exit Sub
     fSaveXMLDB gCalcDB, False, , True, True, "Rebuild CALL!"
+End Sub
+
+Public Sub fRebuildBRForecast()
+    If Not gBRForecastDB.Active Then
+        If Not fConfiguratorInit Then: Exit Sub
+        If Not fXMLSmartUpdate("BRFORECAST") Then: Exit Sub
+    End If
+    fSaveXMLDB gBRForecastDB, False, , True, True, "Rebuild CALL!"
 End Sub
 
 Public Sub fSaveXMLChanges(inXML, inPath, Optional fTimeStampEnabled As Boolean = False, Optional inUTF8BomEnabled = False, Optional inUseRebuild = False, Optional inShowDebugInfo = True)
