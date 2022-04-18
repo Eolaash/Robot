@@ -54,7 +54,7 @@ End Type
 
 Public Type TXML80020Config
     Active As Boolean
-    Path As TPathList
+    Path As tPathList
     XSD20V2 As TXSDFile
     XSD40V2 As TXSDFile
 End Type
@@ -769,6 +769,76 @@ Public Function fConfiguratorInit(Optional inForceInit As Boolean = False)
         uCDebugPrint tLogTag, 0, "Инициализирована конфигурация для <" & gTraderInfo.Name & "> код торговца <" & gTraderInfo.ID & "> ИНН[" & gTraderInfo.INN & "]."
     End If
     fConfiguratorInit = True
+End Function
+
+Public Sub fTestFuncConfig()
+    Dim tResult, tPathList, tToAll, tErrorText
+    fConfiguratorInit True
+    tResult = fGetStorageByTag("m30308", tPathList, tToAll, tErrorText)
+    uCDebugPrint "test", 0, "RES=" & tResult & " PATH=" & tPathList & " ToALL=" & tToAll & " ERR=" & tErrorText
+End Sub
+
+Public Function fGetStorageByTag(inTag, outPathList, outToAll, outErrorText, Optional inSplitter = "::")
+    Dim tXPathString, tNode, tValue, tPathNode, tEnv, tPath, tFullPath
+    
+    'prepare
+    fGetStorageByTag = False
+    outErrorText = vbNullString
+    outPathList = vbNullString
+    outToAll = False
+    
+    'check cfg
+    If Not gMainInit.Active Then
+        outErrorText = "Файл конфигурации <" & gMainInit.ClassTag & "> не загружен! [" & gMainInit.Name & "]"
+        Exit Function
+    End If
+    
+    'get nodes by tag
+    tXPathString = "//storage/item[@name='" & LCase(inTag) & "']"
+    Set tNode = gMainInit.XML.SelectNodes(tXPathString)
+    If tNode.Length <> 1 Then
+        outErrorText = "Файл конфигурации <" & gMainInit.ClassTag & "> не содержит единственной ноды (нод найдено: " & tNode.Length & ")! [" & gMainInit.Name & "] XPath=" & tXPathString
+        Exit Function
+    End If
+    
+    'to all attr read
+    tValue = tNode.Item(0).GetAttribute("droptoall")
+    If Not IsNull(tValue) Then: outToAll = (tValue = "1")
+    
+    'read each path
+    tXPathString = "child::path[(@env and @path)]"
+    Set tNode = tNode.Item(0).SelectNodes(tXPathString)
+    For Each tPathNode In tNode
+        
+        'read
+        tEnv = tPathNode.GetAttribute("env")
+        tPath = tPathNode.GetAttribute("path")
+        
+        'form path
+        tFullPath = vbNullString
+        If tEnv <> vbNullString Then: tFullPath = Environ(UCase(tEnv)) 'crit on fail?!
+        If tPath <> vbNullString Then
+            If tFullPath <> vbNullString Then
+                tFullPath = tFullPath & "\" & tPath
+            Else
+                tFullPath = tPath
+            End If
+        End If
+        
+        'check path
+        If gFSO.FolderExists(tFullPath) Then
+        
+            'add path
+            If outPathList = vbNullString Then
+                outPathList = tFullPath
+            Else
+                outPathList = outPathList & inSplitter & tFullPath
+            End If
+        End If
+    Next
+    
+    'fin
+    fGetStorageByTag = (outPathList <> vbNullString)
 End Function
 
 Private Function fReadTraderInfo(outTraderInfo As TTraderInfo, outErrorText)
