@@ -59,6 +59,15 @@ End Enum
     Declare Sub Sleep Lib "kernel32" (ByVal Milliseconds As Long)
 #End If
 
+'safe UBOUND for any value (even not arrays)
+Public Function uSafeUBound(inArray)
+    uSafeUBound = -2
+    On Error Resume Next
+        uSafeUBound = UBound(inArray)
+        If IsArray(inArray) And Err.Number <> 0 Then: uSafeUBound = -1
+    On Error GoTo 0
+End Function
+
 'Get file MD5 hash
 'parameter full path with name of file returned in the function as an MD5 hash
 'Set a reference to mscorlib 4.0 64-bit

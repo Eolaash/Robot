@@ -141,7 +141,7 @@ Type TSendGTPItem
     ActiveAreaCount As Variant
 End Type
 
-Type TPathList
+Type tPathList
     Root As Variant
     Processed As Variant
     Incoming As Variant
@@ -166,12 +166,12 @@ End Type
 Dim gTempDropList As New Collection
 Dim gMailCopyList As New Collection
 Dim gTempMailFolderName
-Dim g30308Path
-Dim gSideDropPath
 Dim gCurrentMessage As TMessageInfo
-Dim gTempFolder
 Dim gStackMailFolderName
 '=
+Dim g30308FolderTag
+Dim g80020FolderTag
+Dim gTempFolderTag
 '=
 Dim gLocalInit
 
@@ -199,7 +199,7 @@ End Function
 
 'после закрытия outlook переменные сбрасываются; т.е. инициализация при нормальной работе запускается единожды за сессию работы outlook
 Private Function fLocalInit(Optional inForceInit As Boolean = False)
-Dim tLogTag, tAccount, tMainAccountExists
+Dim tLogTag, tAccount, tMainAccountExists, tPathList, tToAll, tErrorText
 Dim tTempFolder As Outlook.Folder
     fLocalInit = False
     tLogTag = "LOCALINI"
@@ -221,26 +221,26 @@ Dim tTempFolder As Outlook.Folder
         End If
         Set tTempFolder = Nothing 'clear object
         'местные пути
-        g30308Path = Environ("HOMEPATH") & "\Desktop\Суточные"
-        gSideDropPath = "Z:\temp\80020"
-        gTempFolder = Environ("TEMP")     'путь до временной локальной папки
+        g30308FolderTag = "m30308" 'Environ("HOMEPATH") & "\Desktop\Суточные"
+        g80020FolderTag = "m80020" '"Z:\temp\80020"
+        gTempFolderTag = "temp" 'Environ("TEMP")     'путь до временной локальной папки
         'проверим пути
-        If Not (gFSO.FolderExists(gTempFolder)) Then
-            uCDebugPrint tLogTag, 2, "Не удалось инициализировать папку временного хранения вложений <gTempFolder>!"
+        If Not fGetStorageListByTag(g30308FolderTag, tPathList, tToAll, tErrorText) Then
+            uCDebugPrint tLogTag, 2, tErrorText
             Exit Function
         End If
-        If Not (gFSO.FolderExists(gSideDropPath)) Then
-            uCDebugPrint tLogTag, 2, "Не удалось найти папку для макетов <gSideDropPath> по пути: " & gSideDropPath
+        If Not fGetStorageListByTag(g80020FolderTag, tPathList, tToAll, tErrorText) Then
+            uCDebugPrint tLogTag, 2, tErrorText
             Exit Function
         End If
-        If Not (gFSO.FolderExists(g30308Path)) Then
-            uCDebugPrint tLogTag, 2, "Не удалось найти папку заявок <g30308Path> по пути: " & g30308Path
+        If Not fGetStorageListByTag(gTempFolderTag, tPathList, tToAll, tErrorText) Then
+            uCDebugPrint tLogTag, 2, tErrorText
             Exit Function
         End If
         'show info
-        uCDebugPrint tLogTag, 0, "gTempFolder > " & gTempFolder
-        uCDebugPrint tLogTag, 0, "gSideDropPath > " & gSideDropPath
-        uCDebugPrint tLogTag, 0, "g30308Path > " & g30308Path
+        'uCDebugPrint tLogTag, 0, "gTempFolder > " & gTempFolder
+        'uCDebugPrint tLogTag, 0, "gSideDropPath > " & gSideDropPath
+        'uCDebugPrint tLogTag, 0, "g30308Path > " & g30308Path
         'check 80020cfg
         If Not (gXML80020CFG.Active) Then
             uCDebugPrint tLogTag, 2, "Не удалось инициировать XML80020CFG!"
@@ -1482,7 +1482,7 @@ End Function
 
 Private Sub fM30308XLSAttachmentReprocess(inFile, inVersion, outAReports As TReportAssist, inValidStructure, inValidName, inDataSet, inComment)
 Dim tNode, tValue, tGTPID, tWorkBook, tFileName, tXPathString, tReportList, tDate, tMode, tComment, tSemiAcceptMode, tRecieved, tKillNode, tOldNode, tNumber, tTraderID, tM30308Node
-Dim tTempVar
+Dim tTempVar, tDropFolder, tResultCollector, tResultElement, tPathList, tToAll, tErrorText, tDropTriggered
 Dim tGraphPicturePath, tRetroComment
 Dim tPrevDataBlock As TM30308DataBlock
 Dim tDataBlock As TM30308DataBlock
@@ -1615,11 +1615,31 @@ Dim tLogTag
     End If
 '13 // Сброс заявки
     'tFileName = inFile.Name
-    If uCopyFile(inFile.Path, g30308Path & "\" & inFile.Name) Then
-        uCDebugPrint tLogTag, 0, "Сброс файла в папку ЗАЯВОК > " & inFile.Name
-        tReport.AddCommand tGTPID
-        'fMailListAdd tClass & cnstDelimiter & tValue 'sort email
+    If Not fGetStorageListByTag(g30308FolderTag, tPathList, tToAll, tErrorText) Then
+        uCDebugPrint tLogTag, 2, "Копирование файлов заявок невозможно! Ошибка получения каталогов хранения заявок: " & tErrorText
+        Exit Sub
     End If
+    
+    tResultCollector = Empty
+    tDropTriggered = False
+    For Each tDropFolder In tPathList
+    
+        If tResultCollector And Not tToAll Then: Exit For
+        
+        tResultElement = uCopyFile(inFile.Path, tDropFolder & "\" & inFile.Name)
+        
+        If tResultElement Then: tDropTriggered = True
+        
+        If IsEmpty(tResultCollector) Then
+            tResultCollector = tResultElement
+        Else
+            tResultCollector = tResultCollector And tResultElement
+        End If
+                
+        uCDebugPrint tLogTag, 0, "ЗАЯВКА перемещена > " & tDropFolder & "\" & inFile.Name
+    Next
+        
+    If tDropTriggered Then: tReport.AddCommand tGTPID
 End Sub
 
 Private Function fM30308Retrospective(outGraphPiturePath, outComment, inExchangeParentNode)
@@ -2294,7 +2314,7 @@ End Sub
 
 'Обработчик ВЛОЖЕНИЙ
 Private Function fAttachmentHandler(inAttachment As Attachment)
-Dim tFileExtension, tLogTag, tDropPath, tClass, tCommandString, tCommandList, tCommand, tIndex, tSubIndex
+Dim tFileExtension, tLogTag, tDropPath, tClass, tCommandString, tCommandList, tCommand, tIndex, tSubIndex, tPathList, tToAll, tErrorText, tTempFolder
 Dim tAReports As TReportAssist
     
 ' 00 // Подготовка
@@ -2315,15 +2335,22 @@ Dim tAReports As TReportAssist
             uCDebugPrint tLogTag, 2, "Не удалось обработать вложение ошибка (#" & Err.Number & "): " & Err.Description
             Exit Function
         End If
+        
+        If Not fGetStorageListByTag(gTempFolderTag, tPathList, tToAll, tErrorText) Then
+            uCDebugPrint tLogTag, 2, "Не удалось обработать вложение! Ошибка временной папки: " & tErrorText
+            Exit Function
+        End If
+        
+        tTempFolder = tPathList(0) 'system folder (so ToAll will not be never used)
 '02 //
         Select Case tFileExtension
             'Эксемельки
             Case "XML":
-                tDropPath = fDropAttachment(inAttachment, gTempFolder, True)
+                tDropPath = fDropAttachment(inAttachment, tTempFolder, True)
                 fAttachmentReprocess_XML tDropPath, tClass, tCommandString
             'Эксельки
             Case "XLSX", "XLS", "XLSM":
-                tDropPath = fDropAttachment(inAttachment, gTempFolder, True)
+                tDropPath = fDropAttachment(inAttachment, tTempFolder, True)
                 fAttachmentReprocess_XLS tDropPath, tClass, tAReports
         End Select
 
@@ -3887,7 +3914,9 @@ Dim tNode, tYear, tMonth, tDay, tTempNode, tNumber, tValue, tRootNode, tTraderID
 End Sub
 
 Private Function fSplitDropArea(inFile, inAreaNode, inDate, inVersionNode, inAreaID, inNewNumber, inXML80020Node, inReport As TCommonReport) As Boolean 'SDA
-Dim tNumber, tYear, tMonth, tDay, tXML80020Blank, tGTPID, tSectionNode, tMainNode, tTraderNode, tDropPath, tFileName, tDropFullPath, tSenderINN, tSenderName, tAIISCode, tTimeZone, tSource80020Node, tDayLightSaving, tRoot, tNode, tComment, tCurrentTime, tSideDropPath, tLogTag
+    Dim tNumber, tYear, tMonth, tDay, tXML80020Blank, tGTPID, tSectionNode, tMainNode, tTraderNode, tDropPath, tFileName, tDropFullPath, tSenderINN, tSenderName, tAIISCode, tTimeZone, tSource80020Node, tDayLightSaving, tRoot, tNode, tComment, tCurrentTime, tSideDropPath, tLogTag
+    Dim tPathList, tToAll, tErrorText, tResultDropPath
+    
     fSplitDropArea = False
     tLogTag = "SDA"
 '01 // Извлечение даты
@@ -3920,15 +3949,27 @@ Dim tNumber, tYear, tMonth, tDay, tXML80020Blank, tGTPID, tSectionNode, tMainNod
 '03 // Создание пути
     'MainFolder
     If Not fBuildM80020DropFolder(gXML80020CFG.Path.Processed, tDropPath, tYear, tMonth, tGTPID, True, inReport.ReasonInternal) Then
-        inReport.Reason = "Внутренняя ошибка автоматики"
+        inReport.Reason = "Внутренняя ошибка автоматики #1-" & tLogTag
         inReport.Status = "Обработка приостановлена до решения проблемы"
         inReport.Decision = 2
         uADebugPrint tLogTag, inReport.ReasonInternal
         Exit Function
     End If
+    
+    If Not fGetStorageListByTag(g80020FolderTag, tPathList, tToAll, tErrorText) Then
+        inReport.Reason = "Внутренняя ошибка автоматики #2-" & tLogTag
+        inReport.Status = "Обработка приостановлена до решения проблемы"
+        inReport.Decision = 2
+        inReport.ReasonInternal = tErrorText
+        uCDebugPrint tLogTag, 2, inReport.ReasonInternal
+        Exit Function
+    End If
+    
+    tResultDropPath = tPathList(0)
+    
     'SideFolder
-    If Not fBuildM80020DropFolder(gSideDropPath, tSideDropPath, tYear, tMonth, tGTPID, True, inReport.ReasonInternal) Then
-        inReport.Reason = "Внутренняя ошибка автоматики"
+    If Not fBuildM80020DropFolder(tResultDropPath, tSideDropPath, tYear, tMonth, tGTPID, True, inReport.ReasonInternal) Then
+        inReport.Reason = "Внутренняя ошибка автоматики #3-" & tLogTag
         inReport.Status = "Обработка приостановлена до решения проблемы"
         inReport.Decision = 2
         uADebugPrint tLogTag, inReport.ReasonInternal

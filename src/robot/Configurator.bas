@@ -774,18 +774,19 @@ End Function
 Public Sub fTestFuncConfig()
     Dim tResult, tPathList, tToAll, tErrorText
     fConfiguratorInit True
-    tResult = fGetStorageByTag("m30308", tPathList, tToAll, tErrorText)
-    uCDebugPrint "test", 0, "RES=" & tResult & " PATH=" & tPathList & " ToALL=" & tToAll & " ERR=" & tErrorText
+    tResult = fGetStorageListByTag("temp", tPathList, tToAll, tErrorText)
+    uCDebugPrint "test", 0, "RES=" & tResult & " PATH=" & uSafeUBound(tPathList) & " ToALL=" & tToAll & " ERR=" & tErrorText
 End Sub
 
-Public Function fGetStorageByTag(inTag, outPathList, outToAll, outErrorText, Optional inSplitter = "::")
-    Dim tXPathString, tNode, tValue, tPathNode, tEnv, tPath, tFullPath
+Public Function fGetStorageListByTag(inTag, outPathList, outToAll, outErrorText)
+    Dim tXPathString, tNode, tValue, tPathNode, tEnv, tPath, tFullPath, tSplitter, tResultPath
     
     'prepare
-    fGetStorageByTag = False
+    fGetStorageListByTag = False
     outErrorText = vbNullString
     outPathList = vbNullString
     outToAll = False
+    tSplitter = "::"
     
     'check cfg
     If Not gMainInit.Active Then
@@ -813,10 +814,12 @@ Public Function fGetStorageByTag(inTag, outPathList, outToAll, outErrorText, Opt
         'read
         tEnv = tPathNode.GetAttribute("env")
         tPath = tPathNode.GetAttribute("path")
+        'Debug.Print "env=" & tEnv & " path=" & tPath
         
         'form path
         tFullPath = vbNullString
         If tEnv <> vbNullString Then: tFullPath = Environ(UCase(tEnv)) 'crit on fail?!
+        'Debug.Print "P1=" & tFullPath
         If tPath <> vbNullString Then
             If tFullPath <> vbNullString Then
                 tFullPath = tFullPath & "\" & tPath
@@ -824,21 +827,26 @@ Public Function fGetStorageByTag(inTag, outPathList, outToAll, outErrorText, Opt
                 tFullPath = tPath
             End If
         End If
+        'Debug.Print "P2=" & tFullPath
         
         'check path
         If gFSO.FolderExists(tFullPath) Then
         
             'add path
-            If outPathList = vbNullString Then
-                outPathList = tFullPath
+            If tResultPath = vbNullString Then
+                tResultPath = tFullPath
             Else
-                outPathList = outPathList & inSplitter & tFullPath
+                tResultPath = tResultPath & tSplitter & tFullPath
             End If
         End If
     Next
     
+    'prep result
+    'Debug.Print "FF > " & tResultPath
+    outPathList = Split(tResultPath, tSplitter)
+    
     'fin
-    fGetStorageByTag = (outPathList <> vbNullString)
+    fGetStorageListByTag = (tResultPath <> vbNullString)
 End Function
 
 Private Function fReadTraderInfo(outTraderInfo As TTraderInfo, outErrorText)

@@ -832,13 +832,14 @@ Dim TSubjectInfo As TSubjectInfo
 End Function
 
 Private Function fForecastReportSend(inAddressList, inAttachmentPath, inYear, inMonth, inDay, inGTPID, inPeaks, inPairs, inForecastValueString, inSubjectInfo As TSubjectInfo)
-Dim tLogTag, tHeader, tAutoSign, tPicturePath, tPictureCode, tCIDCode
-Dim tPeakShifted, tPeak, tPeakArray, tImageAttachment
-Dim tOutMail As Outlook.MailItem
-Dim tPAccessor As Outlook.PropertyAccessor
-Const PR_ATTACH_CONTENT_ID = "http://schemas.microsoft.com/mapi/proptag/0x3712001F"
-
-    tLogTag = "BRFORESEND"
+    Dim tLogTag, tHeader, tAutoSign, tPicturePath, tPictureCode, tCIDCode
+    Dim tPeakShifted, tPeak, tPeakArray, tImageAttachment
+    Dim tOutMail As Outlook.MailItem
+    Dim tPAccessor As Outlook.PropertyAccessor
+    Const PR_ATTACH_CONTENT_ID = "http://schemas.microsoft.com/mapi/proptag/0x3712001F"
+    
+    'prepare
+    tLogTag = fGetLogTag("fForecastReportSend")
     fForecastReportSend = True
     
     ' IMAGE-GRAPH ADD
@@ -873,7 +874,7 @@ Const PR_ATTACH_CONTENT_ID = "http://schemas.microsoft.com/mapi/proptag/0x371200
         
         'internal
         With tOutMail
-            .SendUsingAccount = gMainAccount
+            .SendUsingAccount = fGetMailAccount
             .To = inAddressList
             .CC = ""
             .BCC = ""
@@ -906,7 +907,7 @@ Const PR_ATTACH_CONTENT_ID = "http://schemas.microsoft.com/mapi/proptag/0x371200
     
     Set tOutMail = Nothing
     Set tPAccessor = Nothing
-    uADebugPrint tLogTag, "SENDING from <" & gMainAccount & "> to <" & inAddressList & ">! RESULT = " & fForecastReportSend
+    uADebugPrint tLogTag, "SENDING from <" & fGetMainMailAccountAsString & "> to <" & inAddressList & ">! RESULT = " & fForecastReportSend
 End Function
 
 Private Function fGetChartPicture(inForecastValueString, inPairs, inPeaks)
